@@ -1,0 +1,38 @@
+rm -f hotspot hotspot.linkinfo result.txt
+/usr/local/cuda/bin/nvcc -w -Xptxas -O3 -gencode=arch=compute_70,code=\"sm_70,compute_70\" -gencode=arch=compute_75,code=\"sm_75,compute_75\" -gencode=arch=compute_80,code=\"sm_80,compute_80\" -DRD_WG_SIZE_0=16 hotspot.cu -o hotspot -I/usr/local/cuda/include -L/usr/local/cuda/lib64 
+------------- NVBit (NVidia Binary Instrumentation Tool v1.5.1) Loaded --------------
+NVBit core environment variables (mostly for nvbit-devs):
+            NVDISASM = nvdisasm - override default nvdisasm found in PATH
+            NOBANNER = 0 - if set, does not print this banner
+---------------------------------------------------------------------------------
+         INSTR_BEGIN = 0 - Beginning of the instruction interval where to apply instrumentation
+           INSTR_END = 4294967295 - End of the instruction interval where to apply instrumentation
+----------------------------------------------------------------------------------------------------
+WG size of kernel = 16 X 16
+pyramidHeight: 2
+gridSize: [512, 512]
+border:[2, 2]
+blockGrid:[43, 43]
+targetBlock:[12, 12]
+Start computing the transient temperature
+Starting kernel #1...
+calculate_temp(int, float*, float*, float*, int, int, int, int, float, float, float, float, float, float)
+Exiting kernel #1...
+Ending simulation
+# Collected COMPUTE + MEMORY traces for 1 kernels
+ASSERT FAIL: nvbit_imp.cpp:508:void Nvbit::destroy_ctx(CUcontext, bool): FAIL !(context_map.find(cuctx) != context_map.end())
+Processing directory: /home/micro57/Self-Simulated-Results/Self-Simulated-GV100-Results/HyFiSS-Results/Rodinia/hotspot/sass_traces
+Found sass file: kernel_1.sass
+Found mem file: kernel_1.mem
+Processing /home/micro57/Self-Simulated-Results/Self-Simulated-GV100-Results/HyFiSS-Results/Rodinia/hotspot/sass_traces/kernel_1.sass
+Processing /home/micro57/Self-Simulated-Results/Self-Simulated-GV100-Results/HyFiSS-Results/Rodinia/hotspot/sass_traces/../memory_traces/kernel_1.mem
+Current Time: Sun Aug 11 15:08:26 CST 2024
+Default Sampling Point: SM-0 ...
+
+Current Time: Sun Aug 11 15:08:29 2024
+
+Simulator # Rank-0, processing SM-0
+ ...run START... 
+ ...run EXIT... 
+Processes number:  20
+Reports have been written to /home/micro57/Self-Simulated-Results/Self-Simulated-GV100-Results/HyFiSS-Results/Rodinia/hotspot/outputs/kernel-0-summary.txt
