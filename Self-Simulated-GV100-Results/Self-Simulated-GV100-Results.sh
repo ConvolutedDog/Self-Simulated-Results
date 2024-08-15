@@ -474,11 +474,11 @@ do
 done
 mpirun -np 20 $CONFIG1 $TRACES_SAVE_RELATIVE_PATH/Rodinia/lavaMD/configs --kernel_id 0 $CONFIG2
 python3 ./merge_report.py --dir $TRACES_SAVE_PATH/Rodinia/lavaMD/outputs --kernel_id 0 --np 20
-for kernel_id in {0..99}
-do
-	mpirun -np 10 $CONFIG1 $TRACES_SAVE_RELATIVE_PATH/Rodinia/lud/configs --kernel_id $kernel_id $CONFIG2
-	python3 ./merge_report.py --dir $TRACES_SAVE_PATH/Rodinia/lud/outputs --kernel_id $kernel_id --np 10
-done
+# for kernel_id in {0..99}
+# do
+# 	mpirun -np 10 $CONFIG1 $TRACES_SAVE_RELATIVE_PATH/Rodinia/lud/configs --kernel_id $kernel_id $CONFIG2
+# 	python3 ./merge_report.py --dir $TRACES_SAVE_PATH/Rodinia/lud/outputs --kernel_id $kernel_id --np 10
+# done
 mpirun -np 20 $CONFIG1 $TRACES_SAVE_RELATIVE_PATH/Rodinia/nn/configs --kernel_id 0 $CONFIG2
 python3 ./merge_report.py --dir $TRACES_SAVE_PATH/Rodinia/nn/outputs --kernel_id 0 --np 20
 for kernel_id in {0..99}
