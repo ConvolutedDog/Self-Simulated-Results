@@ -510,7 +510,7 @@ do
 done
 mpirun -np 10 $CONFIG1 $TRACES_SAVE_RELATIVE_PATH/Tango/LSTM/configs --kernel_id 0 $CONFIG2
 python3 ./merge_report.py --dir $TRACES_SAVE_PATH/Tango/LSTM/outputs --kernel_id 0 --np 10
-for kernel_id in {0..99}
+# for kernel_id in {0..99}
 # do
 # 	mpirun -np 10 $CONFIG1 $TRACES_SAVE_RELATIVE_PATH/Tango/ResNet/configs --kernel_id $kernel_id $CONFIG2
 # 	python3 ./merge_report.py --dir $TRACES_SAVE_PATH/Tango/ResNet/outputs --kernel_id $kernel_id --np 10
